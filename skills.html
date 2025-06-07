@@ -2,20 +2,24 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>CompétEnces</title>
+    <title>Compétences</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       ::-webkit-scrollbar {
         display: none;
       }
+      .active-tab {
+        border-color: rgb(13, 84, 43) !important;
+        border-style: dashed !important;
+      }
     </style>
   </head>
   <body class="bg-black w-full h-screen">
-    <!-- Tabs des compétences  -->
+    <!-- Tabs des compétences -->
     <div class="flex flex-row flex-nowrap justify-evenly pt-20">
       <div
         id="buttonSkills1"
-        class="text-white font-bold text-6xl hover:cursor-pointer border-black border-2 p-4 rounded-xl hover:border-green-900 transition-colors"
+        class="text-white font-bold text-6xl hover:cursor-pointer border-black border-2 p-4 rounded-xl hover:border-green-900 transition-colors active-tab"
       >
         Compétences 1
       </div>
@@ -26,7 +30,7 @@
         Compétences 2
       </div>
     </div>
-    <!-- COmpétences 1 -->
+    <!-- Compétences 1 -->
     <div id="skills1" class="w-full h-sm text-white mt-20">
       <div
         class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900"
@@ -74,7 +78,9 @@
     </div>
     <!-- Compétences 2 -->
     <div id="skills2" class="w-full h-sm text-white mt-20 hidden">
-      <div class="m-10 text-white text-2xl">
+      <div
+        class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900"
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
         imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
         phasellus turpis. Taciti nisl semper class neque habitant hac curae hac
@@ -135,11 +141,13 @@
     if (numTab === 0) {
       document.getElementById("skills1").style.display = "block";
       document.getElementById("skills2").style.display = "none";
-      tab = 0;
+      document.getElementById("buttonSkills1").classList.add("active-tab");
+      document.getElementById("buttonSkills2").classList.remove("active-tab");
     } else {
       document.getElementById("skills2").style.display = "block";
       document.getElementById("skills1").style.display = "none";
+      document.getElementById("buttonSkills2").classList.add("active-tab");
+      document.getElementById("buttonSkills1").classList.remove("active-tab");
     }
-    // Here you can add the logic to display the content of the selected tab
   }
 </script>
