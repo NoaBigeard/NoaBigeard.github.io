@@ -8,13 +8,16 @@
       ::-webkit-scrollbar {
         display: none;
       }
+
       .active-tab {
         border-color: rgb(13, 84, 43) !important;
         border-style: dashed !important;
       }
     </style>
   </head>
+
   <body class="bg-black w-full h-screen">
+    <div id="navbar"></div>
     <!-- Tabs des compétences -->
     <div class="flex flex-row flex-nowrap justify-evenly pt-20">
       <div
@@ -150,4 +153,10 @@
       document.getElementById("buttonSkills1").classList.remove("active-tab");
     }
   }
+
+  fetch("navbar.html")
+    .then((res) => res.text())
+    .then((html) => {
+      document.getElementById("navbar").innerHTML = html;
+    });
 </script>
