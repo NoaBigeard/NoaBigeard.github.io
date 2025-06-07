@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CompétEnces</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style></style>
+  </head>
+  <body class="bg-black w-full h-screen">
+    <div class="flex flex-row flex-nowrap justify-evenly pt-20">
+      <div
+        id="buttonSkills1"
+        class="text-white font-bold text-6xl hover:underline hover:cursor-pointer"
+      >
+        Compétences 1
+      </div>
+      <div
+        id="buttonSkills2"
+        class="text-white font-bold text-6xl hover:underline hover:cursor-pointer"
+      >
+        Compétences 2
+      </div>
+    </div>
+    <div id="skills1" class="w-full h-sm text-white mt-20">
+      <div class="m-10 text-white text-2xl">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
+        imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
+        phasellus turpis. Taciti nisl semper class neque habitant hac curae hac
+        condimentum quisque penatibus elementum. Ultricies iaculis suspendisse
+        tortor viverra habitant faucibus et ultrices erat ullamcorper eget id.
+        Ultricies habitant natoque mauris nec accumsan adipiscing eu aliquet
+        dictumst fringilla aliquam lacus.
+      </div>
+      <div class="w-full h-1 bg-red-700">aze</div>
+    </div>
+    <div id="skills2" class="w-full h-sm bg-gray-500 text-white hidden">
+      COMPTENCES 2
+    </div>
+  </body>
+</html>
+<script>
+  let tab = 0;
+  document
+    .getElementById("buttonSkills1")
+    .addEventListener("click", function () {
+      displayTab(0);
+    });
+  document
+    .getElementById("buttonSkills2")
+    .addEventListener("click", function () {
+      displayTab(1);
+    });
+
+  function displayTab(numTab) {
+    if (numTab === 0) {
+      document.getElementById("skills1").style.display = "block";
+      document.getElementById("skills2").style.display = "none";
+      tab = 0;
+    } else {
+      document.getElementById("skills2").style.display = "block";
+      document.getElementById("skills1").style.display = "none";
+    }
+    // Here you can add the logic to display the content of the selected tab
+  }
+</script>
