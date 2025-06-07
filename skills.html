@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Compétences</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .active-tab {
+        border-color: rgb(13, 84, 43) !important;
+        border-style: dashed !important;
+      }
+    </style>
+  </head>
+  <body class="bg-black w-full h-screen">
+    <!-- Tabs des compétences -->
+    <div class="flex flex-row flex-nowrap justify-evenly pt-20">
+      <div
+        id="buttonSkills1"
+        class="text-white font-bold text-6xl hover:cursor-pointer border-black border-2 p-4 rounded-xl hover:border-green-900 transition-colors active-tab"
+      >
+        Compétences 1
+      </div>
+      <div
+        id="buttonSkills2"
+        class="text-white font-bold text-6xl hover:cursor-pointer border-black border-2 p-4 rounded-xl hover:border-green-900 transition-colors"
+      >
+        Compétences 2
+      </div>
+    </div>
+    <!-- Compétences 1 -->
+    <div id="skills1" class="w-full h-sm text-white mt-20">
+      <div
+        class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
+        imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
+        phasellus turpis. Taciti nisl semper class neque habitant hac curae hac
+        condimentum quisque penatibus elementum. Ultricies iaculis suspendisse
+        tortor viverra habitant faucibus et ultrices erat ullamcorper eget id.
+        Ultricies habitant natoque mauris nec accumsan adipiscing eu aliquet
+        dictumst fringilla aliquam lacus.
+      </div>
+      <div class="w-full flex flex-row gap-10">
+        <div class="w-full ml-8">
+          <ul class="flex flex-col gap-2 p-4">
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la première phrase de la liste.
+            </li>
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la deuxième phrase de la liste.
+            </li>
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la troisième phrase de la liste.
+            </li>
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la quatrième phrase de la liste.
+            </li>
+          </ul>
+        </div>
+        <div class="w-full h-auto p-4">
+          <img
+            src="quixorules.png"
+            class="rounded-xl w-sm h-sm object-cover aspect-square"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Compétences 2 -->
+    <div id="skills2" class="w-full h-sm text-white mt-20 hidden">
+      <div
+        class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
+        imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
+        phasellus turpis. Taciti nisl semper class neque habitant hac curae hac
+        condimentum quisque penatibus elementum. Ultricies iaculis suspendisse
+        tortor viverra habitant faucibus et ultrices erat ullamcorper eget id.
+        Ultricies habitant natoque mauris nec accumsan adipiscing eu aliquet
+        dictumst fringilla aliquam lacus.
+      </div>
+      <div class="w-full flex flex-row gap-10">
+        <div class="w-full h-auto p-4">
+          <img
+            src="quixorules.png"
+            class="rounded-xl w-sm h-sm object-cover aspect-square"
+          />
+        </div>
+        <div class="w-full mr-8">
+          <ul class="flex flex-col gap-2 p-4">
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la première phrase de la liste.
+            </li>
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la deuxième phrase de la liste.
+            </li>
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la troisième phrase de la liste.
+            </li>
+            <li
+              class="p-4 border border-gray-300 rounded-lg text-xl hover:bg-green-900 hover:text-white transition-colors"
+            >
+              Voici la quatrième phrase de la liste.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let tab = 0;
+  document
+    .getElementById("buttonSkills1")
+    .addEventListener("click", function () {
+      displayTab(0);
+    });
+  document
+    .getElementById("buttonSkills2")
+    .addEventListener("click", function () {
+      displayTab(1);
+    });
+
+  function displayTab(numTab) {
+    if (numTab === 0) {
+      document.getElementById("skills1").style.display = "block";
+      document.getElementById("skills2").style.display = "none";
+      document.getElementById("buttonSkills1").classList.add("active-tab");
+      document.getElementById("buttonSkills2").classList.remove("active-tab");
+    } else {
+      document.getElementById("skills2").style.display = "block";
+      document.getElementById("skills1").style.display = "none";
+      document.getElementById("buttonSkills2").classList.add("active-tab");
+      document.getElementById("buttonSkills1").classList.remove("active-tab");
+    }
+  }
+</script>
