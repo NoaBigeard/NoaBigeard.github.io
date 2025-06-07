@@ -10,11 +10,10 @@
       }
     </style>
   </head>
-  <body>
+
+  <body class="bg-black w-full h-screen">
     <div id="navbar"></div>
-    <div
-      class="w-full h-screen overflow-hidden flex items-center justify-center bg-black"
-    >
+    <div class="overflow-hidden flex items-center justify-center">
       <div class="flex flex-row gap-8 items-center justify-center">
         <a href="ProjectList/HerbeAChat.html">
           <img
@@ -38,12 +37,11 @@
           />
         </a>
         <a href="ProjectList/GearUp.html">
-         
           <img
             src="Picture/gearUpImage.avif"
             alt="GearUp"
             class="h-[500px] w-[160px] object-cover filter grayscale hover:grayscale-0 hover:scale-110 transition duration-300 ease-in-out rounded-xl"
-          /> </img>
+          />
         </a>
         <a href="ProjectList/PompAir.html">
           <img
@@ -63,3 +61,11 @@
     </div>
   </body>
 </html>
+
+<script>
+  fetch("navbar.html")
+    .then((res) => res.text())
+    .then((html) => {
+      document.getElementById("navbar").innerHTML = html;
+    });
+</script>

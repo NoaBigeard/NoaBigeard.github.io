@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body id="background" class="bg-black text-white mb-60">
+
+  <body id="background" class="bg-black text-white mb-85 h-full">
     <style>
       #background {
         background: radial-gradient(
@@ -15,6 +16,11 @@
           rgba(255, 255, 255, 0.2) 0%,
           black 30%
         );
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+        overflow-y: hidden;
       }
     </style>
     <div id="navbar"></div>
