@@ -1,38 +1,158 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<style>
-     ::-webkit-scrollbar {
-        display: none;
+  </head>
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
     }
-</style>
 
-<body class="bg-black text-white">
-    <div>
-        <p class="text-4xl mt-10 ml-12 mb-15">Projet : Herbe à Chat</p>
+    html {
+      color: white;
+    }
+  </style>
+
+  <body class="bg-black">
+    <div class="m-8">
+      <a
+        href="/projects.html"
+        class="rounded-3xl bg-green-900 text-white font-bold hover:cursor-pointer hover:bg-green-700 transition duration-200 p-2"
+        >Retours aux projets</a
+      >
     </div>
-    <div class="ml-25 pb-5 hover:underline"><a href="https://natan90.github.io/HerbeAchat/">Voir site</a></div>
-    <div class="float-right">
-        <a href="../projects.html" class="flex items-center gap-2 -mt-12 mr-15 hover:underline">
-            <img src="../Picture/FlecheBack.svg" alt="Retour" class="" /> Retour aux projets
-        </a>
+    <div
+      class="flex flex-col w-fit h-fit rounded-3xl m-8 border-2 border-green-900"
+    >
+      <div class="flex flex-row h-1/8 m-4 items-center p-4">
+        <div class="w-1/2 text-4xl font-bold items-center justify-center flex">
+          HERBACHAR
+        </div>
+        <div class="w-1/2 flex items-center justify-center gap justify-evenly">
+          <span
+            class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
+            >JAVA</span
+          >
+          <span
+            class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
+            >ANGULAR</span
+          >
+          <span
+            class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
+            >COMMUNICATION</span
+          >
+          <span
+            class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
+            >INFORMATIQUE</span
+          >
+        </div>
+      </div>
+
+      <div class="flex flex-row h-1/2 m-4 items-center">
+        <div class="w-1/2 h-full text-justify p-4">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
+          imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
+          phasellus turpis. Taciti nisl semper class neque habitant hac curae
+          hac condimentum quisque penatibus elementum. Ultricies iaculis
+          suspendisse tortor viverra habitant faucibus et ultrices erat
+          ullamcorper eget id. Ultricies habitant natoque mauris nec accumsan
+          adipiscing eu aliquet dictumst fringilla aliquam lacus.
+        </div>
+        <div class="w-1/2 h-96 mx-auto">
+          <div class="container mx-auto px-4 py-8 h-full">
+            <div class="relative h-full">
+              <!-- Carrousel -->
+              <div class="overflow-hidden rounded-lg h-full">
+                <!-- Image 1 -->
+                <div
+                  class="absolute inset-0 transition-opacity duration-700 opacity-100 h-full"
+                >
+                  <img
+                    src="../Picture/InfOrangeImage.png "
+                    alt="Image 1 "
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <!-- Image 2 -->
+                <div
+                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
+                >
+                  <img
+                    src="../Picture/PompeAirImage.jpg "
+                    alt="Image 2 "
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <!-- Image 3 -->
+                <div
+                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
+                >
+                  <img
+                    src="../Picture/HerbeAChatImage.png "
+                    alt="Image 3 "
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              <!-- Contrôles -->
+              <button
+                class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-green-900 text-white p-2 rounded-full hover:bg-green-600 hover:cursor-pointer"
+              >
+                &lt;
+              </button>
+              <button
+                class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-green-900 text-white p-2 rounded-full hover:bg-green-600 hover:cursor-pointer"
+              >
+                &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div>
-      <img
-        src="../Picture/HerbeAChatImage.png"
-        alt="HerbeAChat"
-        class="w-9/10 mx-auto mb-10 rounded-lg shadow-lg"
-      />
-    </div>
-
-    <div class="max-w-150">
-      HerbeAChat est un site de e-commerce factice dans lequel
+    <div class="flex justify-between m-8">
+      <a
+        href="Quixo.html"
+        class="rounded-3xl bg-green-900 text-white font-bold hover:cursor-pointer hover:bg-green-700 transition duration-200 p-2"
+      >
+        Projet précédent
+      </a>
+      <a
+        href="Povocodeur.html"
+        class="rounded-3xl bg-green-900 text-white font-bold hover:cursor-pointer hover:bg-green-700 transition duration-200 p-2"
+      >
+        herbe à chat
+      </a>
     </div>
   </body>
 </html>
+
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(".transition-opacity ");
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("opacity-100 ", i === index);
+      slide.classList.toggle("opacity-0 ", i !== index);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    showSlide(currentIndex);
+  }
+  // Ajouter des écouteurs d'événements pour les boutons
+  document.querySelectorAll("button ")[0].addEventListener("click ", prevSlide);
+  document.querySelectorAll("button ")[1].addEventListener("click ", nextSlide);
+</script>
