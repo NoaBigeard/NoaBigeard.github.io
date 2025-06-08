@@ -35,12 +35,12 @@
     </div>
   </body>
   <script>
-    const bg = document.getElementById("background");
-    document.addEventListener("mousemove", (e) => {
-      const x = (e.clientX / window.innerWidth) * 100;
-      const y = (e.clientY / window.innerHeight) * 100;
-      bg.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.15) 0%, black 250px)`;
-    });
+   const bg = document.getElementById("background");
+document.addEventListener("mousemove", (e) => {
+  const x = e.clientX;
+  const y = e.clientY;
+  bg.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.95) 0%, black 120px)`;
+});
 
     fetch("navbar.html")
       .then((res) => res.text())
