@@ -33,70 +33,51 @@
         <div class="w-1/2 flex items-center justify-center gap justify-evenly">
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >JAVA</span
+            >HTML</span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >ANGULAR</span
+            >CSS</span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >COMMUNICATION</span
+            >JavaScript </span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >INFORMATIQUE</span
+            >Projet en équipe </span
           >
         </div>
       </div>
 
       <div class="flex flex-row h-1/2 m-4 items-center">
         <div class="w-1/2 h-full text-justify p-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
-          imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
-          phasellus turpis. Taciti nisl semper class neque habitant hac curae
-          hac condimentum quisque penatibus elementum. Ultricies iaculis
-          suspendisse tortor viverra habitant faucibus et ultrices erat
-          ullamcorper eget id. Ultricies habitant natoque mauris nec accumsan
-          adipiscing eu aliquet dictumst fringilla aliquam lacus.
-        </div>
+          InfOrange est un site informatif dédié à l’entreprise Orange, conçu pour présenter ses différentes facettes de manière claire et accessible. <br><br>
+          L'image 1 correspond à la page d’accueil du site, où l’on retrouve le nom InfOrange mis en avant ainsi qu’une barre de navigation permettant d’accéder facilement aux différentes sections. Cette page introduit l’univers du site et sert de point de départ pour la découverte des contenus. <br><br>
+          L'image 2 montre la page “Sociale”, qui met en lumière les figures importantes de l’entreprise Orange à travers des cartes personnalisées. On y trouve également des informations essentielles sur les engagements sociaux et humains de l’entreprise, soulignant son impact et ses valeurs. <br><br>
+          Pour la troisième image, il s’agit du footer du site, une section située en bas de page. On y retrouve une barre de navigation secondaire permettant de revenir rapidement aux autres pages, ainsi que des liens vers les principaux réseaux sociaux d’Orange. <br><br>
+         </div>
         <div class="w-1/2 h-96 mx-auto">
           <div class="container mx-auto px-4 py-8 h-full">
             <div class="relative h-full">
               <!-- Carrousel -->
-              <div class="overflow-hidden rounded-lg h-full">
-                <!-- Image 1 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-100 h-full"
-                >
-                  <img
-                    src="../Picture/InfOrangeImage.png "
-                    alt="Image 1 "
-                    class="w-full h-full object-cover"
-                  />
+              <div class="overflow-hidden rounded-lg h-full relative">
+                <!-- Images -->
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-100 h-full">
+                  <img src="../Picture/InfOrangeImageA.png"alt="Image 1" class="w-full h-full object-cover" />
                 </div>
-                <!-- Image 2 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
-                >
-                  <img
-                    src="../Picture/PompeAirImage.jpg "
-                    alt="Image 2 "
-                    class="w-full h-full object-cover"
-                  />
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full">
+                  <img src="../Picture/InfOrangeImageP.png" alt="Image 2" class="w-full h-full object-cover" />
                 </div>
-                <!-- Image 3 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
-                >
-                  <img
-                    src="../Picture/HerbeAChatImage.png "
-                    alt="Image 3 "
-                    class="w-full h-full object-cover"
-                  />
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full">
+                  <img src="../Picture/InfOrangeImageF.png" alt="Image 2" class="w-full h-full object-cover" />
                 </div>
               </div>
-
+              
+              <!-- Légende -->
+              <div id="carousel-caption" class="mt-2 text-center text-white italic">
+              </div>
+              
               <!-- Contrôles -->
               <button
                 class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-green-900 text-white p-2 rounded-full hover:bg-green-600 hover:cursor-pointer"
@@ -131,16 +112,26 @@
   </body>
 </html>
 
+
 <script>
   let currentIndex = 0;
-  const slides = document.querySelectorAll(".transition-opacity ");
+  const slides = document.querySelectorAll(".transition-opacity");
   const totalSlides = slides.length;
+
+  const captions = [
+    "Image 1 : Page d'accueil d'InfOrange",
+    "Image 2 : Page Sociale d'InfOrange",
+    "Image 3 : Footer d'InfOrange"
+  ];
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("opacity-100 ", i === index);
-      slide.classList.toggle("opacity-0 ", i !== index);
+      slide.classList.toggle("opacity-100", i === index);
+      slide.classList.toggle("opacity-0", i !== index);
     });
+
+    const captionDiv = document.getElementById("carousel-caption");
+    captionDiv.textContent = captions[index];
   }
 
   function nextSlide() {
@@ -152,7 +143,10 @@
     currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     showSlide(currentIndex);
   }
-  // Ajouter des écouteurs d'événements pour les boutons
-  document.querySelectorAll("button ")[0].addEventListener("click ", prevSlide);
-  document.querySelectorAll("button ")[1].addEventListener("click ", nextSlide);
+
+  // Initialiser la légende au chargement
+  showSlide(currentIndex);
+
+  document.querySelectorAll("button")[0].addEventListener("click", prevSlide);
+  document.querySelectorAll("button")[1].addEventListener("click", nextSlide);
 </script>

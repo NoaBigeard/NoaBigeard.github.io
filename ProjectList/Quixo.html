@@ -33,70 +33,51 @@
         <div class="w-1/2 flex items-center justify-center gap justify-evenly">
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >JAVA</span
+            >Java</span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >ANGULAR</span
+            >JavaFX</span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >COMMUNICATION</span
+            >Communication  </span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >INFORMATIQUE</span
+            >Projet en équipe </span
           >
         </div>
       </div>
 
       <div class="flex flex-row h-1/2 m-4 items-center">
         <div class="w-1/2 h-full text-justify p-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
-          imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
-          phasellus turpis. Taciti nisl semper class neque habitant hac curae
-          hac condimentum quisque penatibus elementum. Ultricies iaculis
-          suspendisse tortor viverra habitant faucibus et ultrices erat
-          ullamcorper eget id. Ultricies habitant natoque mauris nec accumsan
-          adipiscing eu aliquet dictumst fringilla aliquam lacus.
-        </div>
+          Quixo est un projet de jeu de société sur plateau, entièrement développé en Java avec l’interface graphique JavaFX. Il s’agit d’une adaptation numérique du célèbre jeu de réflexion, où deux joueurs s’affrontent pour aligner cinq symboles identiques.        <br><br>
+          L'image 1 <br><br>
+          L'image 2 nous montre un aperçu de l’état du plateau de jeu, affiché sous forme textuelle ou console. Cela permet notamment de tester la logique du jeu sans interface graphique, durant les phases initiales de développement. <br><br>
+          Cette 3e image nous révèle le plateau de jeu dans sa version graphique, développée avec JavaFX. Les joueurs peuvent interagir avec les cases de manière intuitive grâce à une interface plus agréable et ergonomique.
+       </div>
         <div class="w-1/2 h-96 mx-auto">
           <div class="container mx-auto px-4 py-8 h-full">
             <div class="relative h-full">
               <!-- Carrousel -->
-              <div class="overflow-hidden rounded-lg h-full">
-                <!-- Image 1 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-100 h-full"
-                >
-                  <img
-                    src="../Picture/InfOrangeImage.png "
-                    alt="Image 1 "
-                    class="w-full h-full object-cover"
-                  />
+              <div class="overflow-hidden rounded-lg h-full relative">
+                <!-- Images -->
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-100 h-full">
+                  <img src="../Picture/"alt="Image 1 Peut etre  mettre regle pas sur " class="w-full h-full object-cover" />
                 </div>
-                <!-- Image 2 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
-                >
-                  <img
-                    src="../Picture/PompeAirImage.jpg "
-                    alt="Image 2 "
-                    class="w-full h-full object-cover"
-                  />
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full">
+                  <img src="../Picture/Quixo.png" alt="Image 2" class="w-full h-full object-cover" />
                 </div>
-                <!-- Image 3 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
-                >
-                  <img
-                    src="../Picture/HerbeAChatImage.png "
-                    alt="Image 3 "
-                    class="w-full h-full object-cover"
-                  />
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full">
+                  <img src="../Picture/QuixoGraphique.png" alt="Image 3 version graphique" class="w-full h-full object-cover" />
                 </div>
               </div>
-
+              
+              <!-- Légende -->
+              <div id="carousel-caption" class="mt-2 text-center text-white italic">
+              </div>
+              
               <!-- Contrôles -->
               <button
                 class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-green-900 text-white p-2 rounded-full hover:bg-green-600 hover:cursor-pointer"
@@ -131,16 +112,26 @@
   </body>
 </html>
 
+
 <script>
   let currentIndex = 0;
-  const slides = document.querySelectorAll(".transition-opacity ");
+  const slides = document.querySelectorAll(".transition-opacity");
   const totalSlides = slides.length;
+
+  const captions = [
+    "Image 1 : Règles du jeu Quixo",
+    "Image 2 : État du plateau de jeu ",
+    "Image 3 : État du plateau de jeu en version graphique",
+  ];
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("opacity-100 ", i === index);
-      slide.classList.toggle("opacity-0 ", i !== index);
+      slide.classList.toggle("opacity-100", i === index);
+      slide.classList.toggle("opacity-0", i !== index);
     });
+
+    const captionDiv = document.getElementById("carousel-caption");
+    captionDiv.textContent = captions[index];
   }
 
   function nextSlide() {
@@ -152,7 +143,10 @@
     currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     showSlide(currentIndex);
   }
-  // Ajouter des écouteurs d'événements pour les boutons
-  document.querySelectorAll("button ")[0].addEventListener("click ", prevSlide);
-  document.querySelectorAll("button ")[1].addEventListener("click ", nextSlide);
+
+  // Initialiser la légende au chargement
+  showSlide(currentIndex);
+
+  document.querySelectorAll("button")[0].addEventListener("click", prevSlide);
+  document.querySelectorAll("button")[1].addEventListener("click", nextSlide);
 </script>
