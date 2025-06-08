@@ -5,6 +5,9 @@
     <title>Compétences</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+      html{
+        color : white;
+      }
       ::-webkit-scrollbar {
         display: none;
       }
@@ -19,25 +22,29 @@
   <body class="bg-black w-full h-screen">
     <div id="navbar"></div>
     <!-- Tabs des compétences -->
-    <div class="flex flex-row flex-nowrap justify-evenly pt-20">
+    <div class="flex gap-5 pt-20 justify-center">
       <div
         id="buttonSkills1"
-        class="text-white font-bold text-6xl hover:cursor-pointer border-black border-2 p-4 rounded-xl hover:border-green-900 transition-colors active-tab"
+        class="w-[400px] font-bold text-3xl text-center hover:cursor-pointer border-black border-2 p-7 rounded-xl hover:border-green-900 transition-colors active-tab"
       >
-        Compétences 1
+        Compétence 1
+        <div class="text-center text-xl mt-2">Réaliser un développement d'application</div>
       </div>
+    
       <div
         id="buttonSkills2"
-        class="text-white font-bold text-6xl hover:cursor-pointer border-black border-2 p-4 rounded-xl hover:border-green-900 transition-colors"
+        class="w-[400px] text-white font-bold text-3xl text-center hover:cursor-pointer border-black border-2 p-7 rounded-xl hover:border-green-900 transition-colors"
       >
-        Compétences 2
+        Compétence 2
+        <div class="text-center text-xl mt-2">Optimiser des applications</div>
       </div>
     </div>
+    
     <!-- Compétences 1 -->
     <div id="skills1" class="w-full h-sm text-white mt-20">
       <div
-        class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900"
-      >
+        class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900">
+
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
         imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
         phasellus turpis. Taciti nisl semper class neque habitant hac curae hac
@@ -76,6 +83,7 @@
             src="quixorules.png"
             class="rounded-xl w-sm h-sm object-cover aspect-square"
           />
+          <div class="text-center -pl-5">Figure 1: Règle du jeu Quixo</div>
         </div>
       </div>
     </div>

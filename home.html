@@ -6,60 +6,65 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  </head> 
-  <body  id = "background" class="bg-black text-white mb- 0" >
+  </head>
+  <body id="background" class="bg-black text-white mb- 0">
     <style>
-    #background {
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, black 30%);
-    }
-  </style>
+      #background {
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.2) 0%,
+          black 30%
+        );
+      }
+    </style>
     <nav class="sticky top-4 z-50 w-full flex justify-center pt-4">
       <div class="bg-gray-950 text-white shadow-lg rounded-full px-30 py-5">
         <ul class="flex justify-center items-center gap-8 text-xl">
           <li>
             <a
               class="flex items-center gap-1 px-5 py-3 rounded-full hover:bg-green-700 hover:cursor-pointer transition duration-200"
-              href="home.html">Accueil
+              href="home.html"
+              >Accueil
             </a>
           </li>
           <li>
             <a
               class="flex items-center gap-1 px-5 py-3 rounded-full hover:bg-green-700 hover:cursor-pointer transition duration-200"
-              href="projects.html">Projets
-            
+              href="projects.html"
+              >Projets
             </a>
           </li>
           <li>
             <a
               class="flex items-center gap-1 px-5 py-3 rounded-full hover:bg-green-700 hover:cursor-pointer transition duration-200"
-              href="skills.html">Compétences
-          
-      
+              href="skills.html"
+              >Compétences
             </a>
           </li>
           <li>
             <a
               class="flex items-center gap-1 px-5 py-3 rounded-full hover:bg-green-700 hover:cursor-pointer transition duration-200"
-              href="about.html">À propos
+              href="about.html"
+              >À propos
             </a>
           </li>
         </ul>
       </div>
     </nav>
-    <div class="flex flex-col items-center mt-40 hover:cursor-default ">      
-     <div>
-      <p class="text-6xl">Salut, je suis</p>
-     </div> 
+    <div class="flex flex-col items-center mt-40 hover:cursor-default">
+      <div>
+        <p class="text-6xl">Salut, je suis</p>
+      </div>
       <div>
         <p class="font-bold text-8xl">Noa</p>
       </div>
       <p class="text-xl mt-5">Étudiant en informatique</p>
     </div>
   </body>
-   <script>
-    const bg = document.getElementById('background');
+  <script>
+    const bg = document.getElementById("background");
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener("mousemove", (e) => {
       const x = (e.clientX / window.innerWidth) * 100;
       const y = (e.clientY / window.innerHeight) * 100;
       bg.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255,255,255,0.15) 0%, black 250px)`;
