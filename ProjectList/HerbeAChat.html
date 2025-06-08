@@ -28,75 +28,51 @@
     >
       <div class="flex flex-row h-1/8 m-4 items-center p-4">
         <div class="w-1/2 text-4xl font-bold items-center justify-center flex">
-          HERBACHAR
+          HerbeAChat
         </div>
         <div class="w-1/2 flex items-center justify-center gap justify-evenly">
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >JAVA</span
+            >HTML</span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >ANGULAR</span
+            >CSS</span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >COMMUNICATION</span
+            >Communication </span
           >
           <span
             class="inline-block rounded-full px-3 py-1 text-sm font-semibold bg-green-950 mb-2"
-            >INFORMATIQUE</span
+            >Projet en équipe </span
           >
         </div>
       </div>
 
       <div class="flex flex-row h-1/2 m-4 items-center">
         <div class="w-1/2 h-full text-justify p-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
-          imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
-          phasellus turpis. Taciti nisl semper class neque habitant hac curae
-          hac condimentum quisque penatibus elementum. Ultricies iaculis
-          suspendisse tortor viverra habitant faucibus et ultrices erat
-          ullamcorper eget id. Ultricies habitant natoque mauris nec accumsan
-          adipiscing eu aliquet dictumst fringilla aliquam lacus.
+          L'image 1 représente la page d’accueil de notre projet HerbeAChat, un site de e-commerce fictif spécialisé dans la vente d’herbe à chat. On y découvre immédiatement l’identité visuelle du site, son nom, et une présentation claire de l’univers que nous avons voulu créer. L’objectif de cette page est de capter l’attention des visiteurs dès leur arrivée en mettant en avant notre offre et la simplicité de navigation.         <br><br>
+           L'image 2, elle,  présente les différents produits disponibles à la vente, chacun accompagné d’une image, d’un nom, et d’un prix. L’interface a été pensée pour être intuitive et agréable, permettant aux utilisateurs de parcourir facilement l’ensemble des articles. Cette page constitue le cœur fonctionnel de notre site, en regroupant toutes les offres destinées aux amoureux des chats.
         </div>
         <div class="w-1/2 h-96 mx-auto">
           <div class="container mx-auto px-4 py-8 h-full">
             <div class="relative h-full">
               <!-- Carrousel -->
-              <div class="overflow-hidden rounded-lg h-full">
-                <!-- Image 1 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-100 h-full"
-                >
-                  <img
-                    src="../Picture/InfOrangeImage.png "
-                    alt="Image 1 "
-                    class="w-full h-full object-cover"
-                  />
+              <div class="overflow-hidden rounded-lg h-full relative">
+                <!-- Images -->
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-100 h-full">
+                  <img src="../Picture/HerbeAChatPageA.png"alt="Image 1" class="w-full h-full object-cover" />
                 </div>
-                <!-- Image 2 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
-                >
-                  <img
-                    src="../Picture/PompeAirImage.jpg "
-                    alt="Image 2 "
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <!-- Image 3 -->
-                <div
-                  class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full"
-                >
-                  <img
-                    src="../Picture/HerbeAChatImage.png "
-                    alt="Image 3 "
-                    class="w-full h-full object-cover"
-                  />
+                <div class="absolute inset-0 transition-opacity duration-700 opacity-0 h-full">
+                  <img src="../Picture/HerbeAChatPageB.png" alt="Image 2" class="w-full h-full object-cover" />
                 </div>
               </div>
-
+              
+              <!-- Légende -->
+              <div id="carousel-caption" class="mt-2 text-center text-white">
+              </div>
+              
               <!-- Contrôles -->
               <button
                 class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-green-900 text-white p-2 rounded-full hover:bg-green-600 hover:cursor-pointer"
@@ -125,22 +101,32 @@
         href="Povocodeur.html"
         class="rounded-3xl bg-green-900 text-white font-bold hover:cursor-pointer hover:bg-green-700 transition duration-200 p-2"
       >
-        herbe à chat
+        Projet suivant
       </a>
     </div>
   </body>
 </html>
 
+
 <script>
   let currentIndex = 0;
-  const slides = document.querySelectorAll(".transition-opacity ");
+  const slides = document.querySelectorAll(".transition-opacity");
   const totalSlides = slides.length;
+
+  const captions = [
+    "Image 1 : Page d'accueil de HerbeAChat",
+    "Image 2 : Page boutique de HerbeAChat",
+    "Figure 3 : Description ou légende pour HerbeAChatImage.png"
+  ];
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.toggle("opacity-100 ", i === index);
-      slide.classList.toggle("opacity-0 ", i !== index);
+      slide.classList.toggle("opacity-100", i === index);
+      slide.classList.toggle("opacity-0", i !== index);
     });
+
+    const captionDiv = document.getElementById("carousel-caption");
+    captionDiv.textContent = captions[index];
   }
 
   function nextSlide() {
@@ -152,7 +138,10 @@
     currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
     showSlide(currentIndex);
   }
-  // Ajouter des écouteurs d'événements pour les boutons
-  document.querySelectorAll("button ")[0].addEventListener("click ", prevSlide);
-  document.querySelectorAll("button ")[1].addEventListener("click ", nextSlide);
+
+  // Initialiser la légende au chargement
+  showSlide(currentIndex);
+
+  document.querySelectorAll("button")[0].addEventListener("click", prevSlide);
+  document.querySelectorAll("button")[1].addEventListener("click", nextSlide);
 </script>
