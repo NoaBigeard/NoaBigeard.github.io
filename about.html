@@ -8,7 +8,7 @@
 </head>
 
 <body class="bg-black text-white ">
-    <div id="navbar"></div>
+    <div id="navbar-container"></div>
     <div class="text-4xl font-bold mt-20 ml-40 ">
         <p class="">Noa Bigeard</p>
     </div>
@@ -25,8 +25,31 @@
 
 <script>
     fetch("navbar.html")
-        .then((res) => res.text())
+        .then((response) => response.text())
         .then((html) => {
-            document.getElementById("navbar").innerHTML = html;
+            document.getElementById("navbar-container").innerHTML = html;
+
+            // Définir ici la correspondance entre pages et liens de la navbar
+            const pageMap = {
+                about: "À propos",
+            };
+
+            const currentPage =
+                window.location.pathname.split("/").pop() || "index.html";
+            const activeLabel = pageMap[currentPage];
+
+            // Chercher tous les liens et appliquer la classe si le texte correspond
+            const navLinks = document.querySelectorAll("#navbar-container nav a");
+
+            navLinks.forEach((link) => {
+                const linkText = link.textContent.trim();
+
+                if (linkText === activeLabel) {
+                    link.classList.add("font-bold");
+                }
+            });
+        })
+        .catch((error) => {
+            console.error("Erreur lors du chargement de la navbar :", error);
         });
 </script>

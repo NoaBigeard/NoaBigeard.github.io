@@ -5,9 +5,10 @@
     <title>Compétences</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      html{
-        color : white;
+      html {
+        color: white;
       }
+
       ::-webkit-scrollbar {
         display: none;
       }
@@ -20,7 +21,7 @@
   </head>
 
   <body class="bg-black w-full h-screen">
-    <div id="navbar"></div>
+    <div id="navbar-container"></div>
     <!-- Tabs des compétences -->
     <div class="flex gap-5 pt-20 justify-center">
       <div
@@ -28,9 +29,11 @@
         class="w-[400px] font-bold text-3xl text-center hover:cursor-pointer border-black border-2 p-7 rounded-xl hover:border-green-900 transition-colors active-tab"
       >
         Compétence 1
-        <div class="text-center text-xl mt-2">Réaliser un développement d'application</div>
+        <div class="text-center text-xl mt-2">
+          Réaliser un développement d'application
+        </div>
       </div>
-    
+
       <div
         id="buttonSkills2"
         class="w-[400px] text-white font-bold text-3xl text-center hover:cursor-pointer border-black border-2 p-7 rounded-xl hover:border-green-900 transition-colors"
@@ -39,12 +42,12 @@
         <div class="text-center text-xl mt-2">Optimiser des applications</div>
       </div>
     </div>
-    
+
     <!-- Compétences 1 -->
     <div id="skills1" class="w-full h-sm text-white mt-20">
       <div
-        class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900">
-
+        class="m-10 text-white text-2xl border-2 rounded-xl p-4 border-green-900"
+      >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci tempus
         imperdiet cras etiam nostra himenaeos mollis erat duis sollicitudin
         phasellus turpis. Taciti nisl semper class neque habitant hac curae hac
@@ -163,8 +166,31 @@
   }
 
   fetch("navbar.html")
-    .then((res) => res.text())
+    .then((response) => response.text())
     .then((html) => {
-      document.getElementById("navbar").innerHTML = html;
+      document.getElementById("navbar-container").innerHTML = html;
+
+      // Définir ici la correspondance entre pages et liens de la navbar
+      const pageMap = {
+        skills: "Compétences",
+      };
+
+      const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+      const activeLabel = pageMap[currentPage];
+
+      // Chercher tous les liens et appliquer la classe si le texte correspond
+      const navLinks = document.querySelectorAll("#navbar-container nav a");
+
+      navLinks.forEach((link) => {
+        const linkText = link.textContent.trim();
+
+        if (linkText === activeLabel) {
+          link.classList.add("font-bold");
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Erreur lors du chargement de la navbar :", error);
     });
 </script>

@@ -12,7 +12,7 @@
   </head>
 
   <body class="bg-black w-full h-screen">
-    <div id="navbar"></div>
+    <div id="navbar-container"></div>
     <div class="overflow-hidden flex items-center justify-center">
       <div class="flex flex-row gap-8 items-center justify-center">
         <a href="ProjectList/HerbeAChat.html">
@@ -64,8 +64,31 @@
 
 <script>
   fetch("navbar.html")
-    .then((res) => res.text())
+    .then((response) => response.text())
     .then((html) => {
-      document.getElementById("navbar").innerHTML = html;
+      document.getElementById("navbar-container").innerHTML = html;
+
+      // Définir ici la correspondance entre pages et liens de la navbar
+      const pageMap = {
+        projects: "Projets",
+      };
+
+      const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+      const activeLabel = pageMap[currentPage];
+
+      // Chercher tous les liens et appliquer la classe si le texte correspond
+      const navLinks = document.querySelectorAll("#navbar-container nav a");
+
+      navLinks.forEach((link) => {
+        const linkText = link.textContent.trim();
+
+        if (linkText === activeLabel) {
+          link.classList.add("font-bold");
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Erreur lors du chargement de la navbar :", error);
     });
 </script>
