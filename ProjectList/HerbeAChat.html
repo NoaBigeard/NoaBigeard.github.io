@@ -10,10 +10,15 @@
      ::-webkit-scrollbar {
         display: none;
     }
+    
+    html {
+        color: white;
+    }
 </style>
 
-<body class="bg-black text-white">
-    <div>
+<body class="bg-black">
+    <div id="navbar"></div>
+    <!-- <div>
         <p class="text-4xl mt-10 ml-12 mb-15">Projet : Herbe à Chat</p>
     </div>
     <div class="ml-25 pb-5 hover:underline"><a href="https://natan90.github.io/HerbeAchat/">Voir site</a></div>
@@ -33,6 +38,33 @@
 
     <div class="max-w-150">
       HerbeAChat est un site de e-commerce factice dans lequel
+    </div> -->
+
+    <div class="flex flex-col w-fit h-fit  rounded-3xl m-8 border-2 border-green">
+        <div class="flex flex-row h-1/8 m-4 items-center">
+            <div class="w-1/2 text-4xl">Titre du projet</div>
+            <div class="w-1/2">
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag1</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag2</span>
+                <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Tag3</span>
+            </div>
+
+        </div>
+
+        <div class="flex flex-row h-1/2 m-4 items-center">
+            <div class="w-1/2">Titre du projet</div>
+            <div class="w-1/2"><img src="../Picture/HerbeAChatImage.png"> </img>
+            </div>
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
+
+<script>
+    fetch("../navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+            document.getElementById("navbar").innerHTML = html;
+        });
+</script>
