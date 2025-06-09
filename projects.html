@@ -92,22 +92,23 @@
       .then((response) => response.text())
       .then((html) => {
         document.getElementById("navbar-container").innerHTML = html;
-
-        const pageMap = {
-          projects: "Projets",
-        };
-
-        const currentPage =
-          window.location.pathname.split("/").pop() || "index.html";
-        const activeLabel = pageMap[currentPage];
-
+  
+        // Récupération du nom de la page sans l’extension
+        const currentPage = window.location.pathname.split("/").pop().split(".")[0] || "index";
+  
+        // Cherche tous les liens de la navbar
         const navLinks = document.querySelectorAll("#navbar-container nav a");
-
+  
         navLinks.forEach((link) => {
-          const linkText = link.textContent.trim();
-
-          if (linkText === activeLabel) {
-            link.classList.add("font-bold");
+          const href = link.getAttribute("href");
+  
+          if (href) {
+            // Extrait le nom de la page du lien
+            const linkPage = href.split("/").pop().split(".")[0];
+  
+            if (linkPage === currentPage) {
+              link.classList.add("font-bold");
+            }
           }
         });
       })

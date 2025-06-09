@@ -36,35 +36,34 @@
     </div>
   </body>
   <script>
-   const bg = document.getElementById("background");
-document.addEventListener("mousemove", (e) => {
-  const x = e.clientX;
-  const y = e.clientY;
-  bg.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.95) 0%, black 120px)`;
-});
-
+    const bg = document.getElementById("background");
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      bg.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.95) 0%, black 120px)`;
+    });
+  
     fetch("navbar.html")
       .then((response) => response.text())
       .then((html) => {
         document.getElementById("navbar-container").innerHTML = html;
-
-        // Définir ici la correspondance entre pages et liens de la navbar
-        const pageMap = {
-          index: "Accueil",
-        };
-
-        const currentPage =
-          window.location.pathname.split("/").pop() || "index";
-        const activeLabel = pageMap[currentPage];
-
-        // Chercher tous les liens et appliquer la classe si le texte correspond
+  
+        // Récupération du nom de la page sans l’extension
+        const currentPage = window.location.pathname.split("/").pop().split(".")[0] || "index";
+  
+        // Cherche tous les liens de la navbar
         const navLinks = document.querySelectorAll("#navbar-container nav a");
-
+  
         navLinks.forEach((link) => {
-          const linkText = link.textContent.trim();
-
-          if (linkText === activeLabel) {
-            link.classList.add("font-bold");
+          const href = link.getAttribute("href");
+  
+          if (href) {
+            // Extrait le nom de la page du lien
+            const linkPage = href.split("/").pop().split(".")[0];
+  
+            if (linkPage === currentPage) {
+              link.classList.add("font-bold");
+            }
           }
         });
       })
@@ -72,4 +71,5 @@ document.addEventListener("mousemove", (e) => {
         console.error("Erreur lors du chargement de la navbar :", error);
       });
   </script>
+  
 </html>
