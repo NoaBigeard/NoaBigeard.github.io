@@ -13,82 +13,106 @@
 
   <body class="bg-black w-full h-screen">
     <div id="navbar-container"></div>
-    <div class=" flex items-center justify-center">
+
+    <div class="flex items-center justify-center">
       <div class="flex flex-row gap-8 items-center justify-center">
-        <a href="ProjectList/HerbeAChat.html">
+
+        <a href="ProjectList/HerbeAChat.html" class="relative group">
           <img
             src="Picture/HerbeAChatImage.png"
             alt="HerbeAChat"
-            class="h-[500px] w-[160px] object-cover filter grayscale hover:grayscale-0 hover:scale-110 transition duration-300 ease-in-out rounded-xl"
+            class="h-[500px] w-[160px] object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           />
+          <span class="absolute inset-0 flex items-center justify-center  text-black text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+            HerbeAChat
+          </span>
         </a>
-        <a href="ProjectList/Povocodeur.html">
+
+        <a href="ProjectList/Povocodeur.html" class="relative group">
           <img
             src="Picture/PovocodeurImage.jpg"
             alt="Povocodeur"
-            class="h-[500px] w-[160px] object-cover filter grayscale hover:grayscale-0 hover:scale-110 transition duration-300 ease-in-out rounded-xl"
+            class="h-[500px] w-[160px] object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           />
+          <span class="absolute inset-0 flex items-center justify-center text-black  text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+            Povocodeur
+          </span>
         </a>
-        <a href="ProjectList/InfOrange.html">
+
+        <a href="ProjectList/InfOrange.html" class="relative group">
           <img
             src="Picture/InfOrangeImage.png"
             alt="InfOrange"
-            class="h-[500px] w-[160px] object-cover filter grayscale hover:grayscale-0 hover:scale-110 transition duration-300 ease-in-out rounded-xl"
+            class="h-[500px] w-[160px] object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           />
+          <span class="absolute inset-0 flex items-center justify-center  text-black  text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+            InfOrange
+          </span>
         </a>
-        <a href="ProjectList/GearUp.html">
+
+        <a href="ProjectList/GearUp.html" class="relative group">
           <img
             src="Picture/gearUpImage.avif"
             alt="GearUp"
-            class="h-[500px] w-[160px] object-cover filter grayscale hover:grayscale-0 hover:scale-110 transition duration-300 ease-in-out rounded-xl"
+            class="h-[500px] w-[160px] object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           />
+          <span class="absolute inset-0 flex items-center justify-center text-black  text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+            GearUp
+          </span>
         </a>
-        <a href="ProjectList/PompAir.html">
+
+        <a href="ProjectList/PompAir.html" class="relative group">
           <img
-            src="Picture/PompeAirImage.jpg"
+            src="Picture/PompAirImage.jpg"
             alt="Pomp'Air"
-            class="h-[500px] w-[160px] object-cover filter grayscale hover:grayscale-0 hover:scale-110 transition duration-300 ease-in-out rounded-xl"
+            class="h-[500px] w-[160px] object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           />
+          <span class="absolute inset-0 flex items-center justify-center  text-black  text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+            Pomp'Air
+          </span>
         </a>
-        <a href="ProjectList/Quixo.html">
+
+        <a href="ProjectList/Quixo.html" class="relative group">
           <img
             src="Picture/QuixoImage.jpg"
             alt="Quixo"
-            class="h-[500px] w-[160px] object-cover filter grayscale hover:grayscale-0 hover:scale-110 transition duration-300 ease-in-out rounded-xl"
+            class="h-[500px] w-[160px] object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-300 ease-in-out rounded-xl"
           />
+          <span class="absolute inset-0 flex items-center justify-center text-black  text-xl font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+            Quixo
+          </span>
         </a>
+
       </div>
     </div>
   </body>
-</html>
 
-<script>
-  fetch("navbar.html")
-    .then((response) => response.text())
-    .then((html) => {
-      document.getElementById("navbar-container").innerHTML = html;
+  <script>
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("navbar-container").innerHTML = html;
 
-      // Définir ici la correspondance entre pages et liens de la navbar
-      const pageMap = {
-        projects: "Projets",
-      };
+        const pageMap = {
+          projects: "Projets",
+        };
 
-      const currentPage =
-        window.location.pathname.split("/").pop() || "index.html";
-      const activeLabel = pageMap[currentPage];
+        const currentPage =
+          window.location.pathname.split("/").pop() || "index.html";
+        const activeLabel = pageMap[currentPage];
 
-      // Chercher tous les liens et appliquer la classe si le texte correspond
-      const navLinks = document.querySelectorAll("#navbar-container nav a");
+        const navLinks = document.querySelectorAll("#navbar-container nav a");
 
-      navLinks.forEach((link) => {
-        const linkText = link.textContent.trim();
+        navLinks.forEach((link) => {
+          const linkText = link.textContent.trim();
 
-        if (linkText === activeLabel) {
-          link.classList.add("font-bold");
-        }
+          if (linkText === activeLabel) {
+            link.classList.add("font-bold");
+          }
+        });
+      })
+      .catch((error) => {
+        console.error("Erreur lors du chargement de la navbar :", error);
       });
-    })
-    .catch((error) => {
-      console.error("Erreur lors du chargement de la navbar :", error);
-    });
-</script>
+  </script>
+</html>
