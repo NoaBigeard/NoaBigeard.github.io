@@ -114,14 +114,14 @@
             L’image 2 montre une interface textuelle du jeu Quixo, dans laquelle
             l’utilisateur saisit une valeur incorrecte. Cette situation met en
             évidence l’importance de la gestion des erreurs et du contrôle des
-            entrées utilisateur dans le développement d’une application. <br />
-
+            entrées utilisateur dans le développement d’une application.
+            <br /><br />
             En effet, il est essentiel de prévoir des vérifications
             systématiques afin d’assurer la robustesse et la fiabilité du
             programme. Ici, le programme détecte une entrée invalide et réagit
             en conséquence, ce qui reflète un bon usage des
             <strong>structures conditionnelles</strong> et de la gestion des
-            exceptions. <br />
+            exceptions. <br /><br />
 
             Ce type de test est également représentatif d’un savoir-faire
             fondamental acquis en première année de BUT Informatique : la
@@ -139,20 +139,36 @@
 
     <!-- Compétences 2 -->
     <div id="skills2" class="w-full h-sm text-white mt-20 hidden">
-  
       <hr class="max-w-[90%] mx-auto border-green-800" />
       <div
         class="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center p-4"
       >
         <div class="flex-1 max-w-[700px]">
           <p>
-            L’image 1 représente la page d'accueil du site InfOrange, un site informatif dans le cadre d’un projet de groupe. Cette activité mobilise plusieurs savoirs et savoir-faire fondamentaux acquis en BUT Informatique. <br /> <br>
-          
-            Tout d’abord, elle illustre l’importance de la maîtrise des langages du web (<strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>) pour concevoir une interface fidèle à l’identité visuelle d’une entreprise. Ensuite, la réalisation collaborative du site m’a permis de développer ma capacité à travailler en équipe, notamment via l’usage de <strong>Git</strong> et <strong>GitHub</strong> pour la gestion de version et le partage de code. <br /> <br>
-          
-            Ce projet a également renforcé mes compétences en <strong>rédaction de contenu</strong> structuré adapté à une publication web, en respectant les droits liés à l’usage d’images et de marques. Il reflète enfin mon aptitude à intégrer des visuels de manière cohérente dans une page web, tout en assurant une navigation claire et une expérience utilisateur agréable.
+            L’image 1 représente la page d'accueil du site InfOrange, un site
+            informatif dans le cadre d’un projet de groupe. Cette activité
+            mobilise plusieurs savoirs et savoir-faire fondamentaux acquis en
+            BUT Informatique. <br /><br>
+            <br />
+
+            Tout d’abord, elle illustre l’importance de la maîtrise des langages
+            du web (<strong>HTML</strong>, <strong>CSS</strong>,
+            <strong>JavaScript</strong>) pour concevoir une interface fidèle à
+            l’identité visuelle d’une entreprise. Ensuite, la réalisation
+            collaborative du site m’a permis de développer ma capacité à
+            travailler en équipe, notamment via l’usage de
+            <strong>Git</strong> et <strong>GitHub</strong> pour la gestion de
+            version et le partage de code. <br /><br>
+            <br />
+
+            Ce projet a également renforcé mes compétences en
+            <strong>rédaction de contenu</strong> structuré adapté à une
+            publication web, en respectant les droits liés à l’usage d’images et
+            de marques. Il reflète enfin mon aptitude à intégrer des visuels de
+            manière cohérente dans une page web, tout en assurant une navigation
+            claire et une expérience utilisateur agréable.
           </p>
-          </div>
+        </div>
 
         <div class="text-center">
           <div class="inline-block">
@@ -162,7 +178,7 @@
               alt="Capture d'écran du code"
             />
             <div class="mt-2 text-sm text-gray-300 italic text-center">
-              Image 1: Page d'accueil du site infOrange 
+              Image 1: Page d'accueil du site infOrange
             </div>
           </div>
         </div>
@@ -179,13 +195,29 @@
               alt="Capture d'écran du code"
             />
             <div class="mt-2 text-sm text-gray-300 italic text-center">
-              Image 2: je sais pas encore
+              Image 2: diagramme de Gantt du projet
             </div>
           </div>
         </div>
         <div class="flex-1 max-w-[700px]">
           <p>
-          zmlf,zgpzgioipfn
+            L’image 2 présente un diagramme de Gantt, un outil de gestion de
+            projet qui permet de visualiser les différentes étapes et tâches à
+            réaliser dans le cadre du projet InfOrange. <br />
+            <br />
+
+            Ce diagramme est essentiel pour planifier efficacement le travail en
+            équipe, en répartissant les tâches entre les membres et en
+            respectant les délais impartis. Il reflète ma capacité à organiser
+            un projet de manière structurée, en tenant compte des
+            interdépendances entre les différentes activités. <br /><br />
+
+            La création d’un tel diagramme nécessite une bonne compréhension des
+            outils de gestion de projet, ainsi qu’une capacité à anticiper les
+            besoins et les ressources nécessaires pour mener à bien le projet.
+            Cela témoigne également d’une compétence clé en informatique : la
+            planification et la gestion du temps dans le développement
+            d’applications.
           </p>
         </div>
       </div>
@@ -223,32 +255,30 @@
       }
 
       fetch("navbar.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("navbar-container").innerHTML = html;
-  
-        // Récupération du nom de la page sans l’extension
-        const currentPage = window.location.pathname.split("/").pop().split(".")[0] || "index";
-  
-        // Cherche tous les liens de la navbar
-        const navLinks = document.querySelectorAll("#navbar-container nav a");
-  
-        navLinks.forEach((link) => {
-          const href = link.getAttribute("href");
-  
-          if (href) {
-            // Extrait le nom de la page du lien
-            const linkPage = href.split("/").pop().split(".")[0];
-  
-            if (linkPage === currentPage) {
-              link.classList.add("font-bold");
+        .then((response) => response.text())
+        .then((html) => {
+          document.getElementById("navbar-container").innerHTML = html;
+
+          const currentPage =
+            window.location.pathname.split("/").pop().split(".")[0] || "index";
+
+          const navLinks = document.querySelectorAll("#navbar-container nav a");
+
+          navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+
+            if (href) {
+              const linkPage = href.split("/").pop().split(".")[0];
+
+              if (linkPage === currentPage) {
+                link.classList.add("font-bold");
+              }
             }
-          }
+          });
+        })
+        .catch((error) => {
+          console.error("Erreur lors du chargement de la navbar :", error);
         });
-      })
-      .catch((error) => {
-        console.error("Erreur lors du chargement de la navbar :", error);
-      });
-  </script>
+    </script>
   </body>
 </html>
