@@ -17,11 +17,13 @@
           black 120px
         );
       }
-
+      html,
+      body {
+        overflow: hidden;
+        height: 100%;
+      }
       ::-webkit-scrollbar {
         display: none;
-        overflow-y: hidden;
-        overflow-x: hidden;
       }
     </style>
     <div id="navbar-container"></div>
@@ -42,25 +44,26 @@
       const y = e.clientY;
       bg.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.95) 0%, black 120px)`;
     });
-  
+
     fetch("navbar.html")
       .then((response) => response.text())
       .then((html) => {
         document.getElementById("navbar-container").innerHTML = html;
-  
+
         // Récupération du nom de la page sans l’extension
-        const currentPage = window.location.pathname.split("/").pop().split(".")[0] || "index";
-  
+        const currentPage =
+          window.location.pathname.split("/").pop().split(".")[0] || "index";
+
         // Cherche tous les liens de la navbar
         const navLinks = document.querySelectorAll("#navbar-container nav a");
-  
+
         navLinks.forEach((link) => {
           const href = link.getAttribute("href");
-  
+
           if (href) {
             // Extrait le nom de la page du lien
             const linkPage = href.split("/").pop().split(".")[0];
-  
+
             if (linkPage === currentPage) {
               link.classList.add("font-bold");
             }
@@ -71,5 +74,4 @@
         console.error("Erreur lors du chargement de la navbar :", error);
       });
   </script>
-  
 </html>

@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
-        .html {
-            
-        }
+    
+            html,
+      body {
+        overflow-x: hidden;
+        height: 100%;
+      } 
+        
         .starry-background {
             position: fixed;
             top: 0;
@@ -50,8 +54,16 @@
         <p class="">Noa Bigeard</p>
     </div>
     <div class=" w-[250px] mt-20 ml-60  "><img src="Picture/PhotoNoa.png" alt="PhotoNoa" class="rounded-4xl" style="filter: grayscale(50%)"></div>
-    <div class="flex flex-col max-w-150 float-right -mt-90 mr-40">
+    <div class="flex flex-col max-w-150 float-right -mt-100 mr-40">
         <p>Salut ! Je suis actuellement étudiant à l’Institut Universitaire de Technologie de Belfort-Montbéliard, situé dans la ville de Belfort, en Bourgogne-Franche-Comté.</p> <p><br>Je poursuis une formation en informatique, au sein de laquelle j’apprends à concevoir des sites web dynamiques, développer des applications logicielles robustes, et analyser des problèmes techniques afin d’y apporter des solutions efficaces. Ce parcours m’offre également une solide base en algorithmique, en bases de données, ainsi qu’en architecture des systèmes informatiques.</p> <p><br>Curieux et passionné par les nouvelles technologies, je m'investis activement dans divers projets personnels et académiques, ce qui me permet d'approfondir mes compétences, de travailler en équipe et de découvrir des domaines variés comme la cybersécurité, l’intelligence artificielle ou encore le développement mobile. J’aime relever de nouveaux défis et apprendre continuellement pour évoluer dans le monde numérique en constante évolution.</p>
+        <div class="mt-10 flex gap-40 text-xl ml-35">
+            <a href="https://github.com/NoaBigeard" target="_blank" class="hover:underline hover:text-yellow-400">
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/noa-bigeard-5a5041347/" target="_blank" class="hover:underline hover:text-blue-400">
+                LinkedIn
+            </a>
+        </div>
     </div>
     </div>
 </body>
@@ -84,7 +96,8 @@
             console.error("Erreur lors du chargement de la navbar :", error);
         });
 </script>
-<script>document.addEventListener("DOMContentLoaded", () => {
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
     const background = document.querySelector(".starry-background");
 
     const numberOfStars = 100;
